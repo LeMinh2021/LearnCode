@@ -1,0 +1,137 @@
+/*font for web*/
+.font-title{
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: 45px;
+    text-align: center;
+}
+
+.font-caption{
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: 35px;
+    text-align: center;
+}
+
+
+.font-text{
+    text-align: center;
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: 20px;
+}
+.font-note{
+    text-align: center;
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: 15px;
+}
+/*done css of font for web*/
+
+
+.im{
+    height: auto;
+    width: auto;
+
+
+}
+
+.imm{
+    height: auto;
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    border: 2px solid black;
+}
+
+
+
+
+/*banner */
+.banner{
+    margin-top: 65px ;
+}
+.banner-one{
+    height: auto;
+    width: auto;
+    margin: auto;
+
+}
+
+.banner-two{
+    height: auto;
+    width: 100%;
+    margin: auto;
+
+}
+/*banner done */
+
+
+/*nav--jqery*/
+.navbar-scroll {
+    background: white;
+    padding: 0;
+    box-shadow: 0px 1px 30px rgba(0, 0, 0, 0.4);
+    transition-duration: 0.6s;
+}
+.nav-dropdown-scroll {
+    background: black;
+    box-shadow: 0px 10px 9px rgba(0, 0, 0, 0.4);
+}
+
+.navbar {
+    background-color: white;
+}
+.nav-item {
+    position: relative;
+}
+.nav-item a {
+    font-size: 20px;
+    color: black;
+    font-family: 'Lato', sans-serif;
+    margin: 0px 15px 0px 15px;
+}
+.nav-item a:hover {
+    color: black;
+}
+.mr-auto {
+    margin-left: 20rem;
+}
+.navbar ul li a.nav-link:before {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: transparent;
+    content: '';
+    opacity: 0;
+    -ms-transition: opacity 0.3s, -webkit-transform 0.3s;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    -ms-transform: translateY(10px);
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+}
+
+.navbar-collapse ul li:hover a.nav-link:before {
+    opacity: 1;
+    -ms-transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    bottom: 0px;
+    background: black;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    color: black;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.dropdown-menu {
+    border: 0px;
+    background-color: white;
+}
+/*menu done*/
+
+
+
+
