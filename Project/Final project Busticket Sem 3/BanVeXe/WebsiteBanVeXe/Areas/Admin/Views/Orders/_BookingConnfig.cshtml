@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WebsiteBanVeXe.Models.ticket>
+<h2>Tickets are booked</h2>
+@foreach (var item in Model)
+{
+    
+    <table class="table border" style="margin-top:20px;">
+        <tbody>
+            <tr>
+                <td class="title">Ticket code</td>
+                <td>@item.code</td>
+            </tr>
+            <tr>
+                <td class="title">Name of garage</td>
+                <td>@item.CoachName</td>
+            </tr>
+            <tr>
+                <td class="title">Departure time</td>
+                <td>@item.departure_date.ToString("dd-MM-yyyy") ||  Lúc @item.departure_date.ToString("hh:mm tt")</td>
+            </tr>
+            <tr>
+                <td class="title">Place of departure (Bus station)</td>
+                <td>@item.airport</td>
+            </tr>
+            <tr>
+                <td class="title">Destination</td>
+                <td>@item.arrival_address</td>
+            </tr>
+            <tr>
+                <td class="title">License plates</td>
+                <td>@item.licensePlates</td>
+            </tr>
+            <tr>
+                <td class="title">Total money</td>
+                <td class="b-id text-danger font-weight-bold">@item.price.ToString("N0") USD</td>
+            </tr>
+        </tbody>
+    </table>
+}

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebsiteBanVeXe.Models.ticket>
+@{ var sum = 0;}
+@foreach (var item in Model)
+{
+    
+    <table style="margin-top:20px;">
+        <tbody>
+
+            <tr>
+                <td class="title">License plates</td>
+                <td>@item.licensePlates</td>
+            </tr>
+            <tr>
+                <td class="title">The name of the garage</td>
+                <td>@item.CoachName</td>
+            </tr>
+            <tr>
+                <td class="title">Place of departure</td>
+                <td>@item.departure_address</td>
+            </tr>
+            <tr>
+                <td class="title">Destination</td>
+                <td>@item.arrival_address</td>
+            </tr>
+            <tr>
+                <td class="title">License plates</td>
+                <td>@item.licensePlates</td>
+            </tr>
+            <tr>
+                <td class="title">Total amount</td>
+                <td class="b-id text-danger font-weight-bold">@item.price.ToString("N0") VND</td>
+            </tr>
+        </tbody>
+    </table>
+    sum += (int)item.price;
+}

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body style="max-width: 100%; background-color: #E6E6E6;font-family:Arial;">
+    <div class="" style="max-width: 80%;margin:auto;background-color: white; padding: 30px;padding-top:30px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="border-bottom: 5px solid #0404B4"><h3 style="color: #0404B4">SRC.com </h3> </div>
+                <div>
+                    <h2 style="color: #424242;text-align: center;">ORDER CONFIRMATION</h2>
+                    <h4 style="color: #424242;">  Dear  <span style="color: green;"> {{name}}</span> Thank you for trusting and booking tickets at YATRA.COM website, here is your Order information </h4>
+                    <table>
+                        <tbody style="color: #424242;">           
+                            <tr>
+                                <td class="title" style="font-weight:bold;">Order Code:</td>
+                                <td>{{orderCode}} </td>
+                            </tr>
+                            <tr>
+                                <td class="title" style="font-weight:bold;">Customer name</td>
+                                <td>{{name}} </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold;">Email:</td>
+                                <td>{{email}}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold;">Phone number:</td>
+                                <td>{{phone}}</td>
+                            </tr>
+
+                            <tr>
+                                <td style="font-weight:bold;">SEX:</td>
+                                <td>{{gioitinh}}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold;">Nationality:</td>
+                                <td>{{quoctich}}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold;">message:</td>
+                                <td>{{mess}}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold;">Date created:</td>
+                                <td>{{created_ate}} </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold;">Payment Status:</td>
+                                <td>{{statuspayment}}.</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold;">Payment methods:</td>
+                                <td>{{Methodpayment}}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold;">Total money:</td>
+                                <td><h4 class="text-danger"> {{total}}</h4></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3 style="color: green;border-bottom: 3px solid green;">Order details:</h3>
+                    {{htmlListOrder1}}
+                    {{htmlListOrder2}}
+                    <div style="border-top: 3px solid #01DF3A;margin-top: 50px;"><h3 style="color: #0404B4">SRC.COM </h3><span>Thank you very much - All contact information: <span style="color: #FF8000;font-weight: bold;">SRC@gmail.com </span></span> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+</html>

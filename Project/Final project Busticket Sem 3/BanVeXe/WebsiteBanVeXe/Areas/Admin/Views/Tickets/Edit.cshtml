@@ -1,0 +1,118 @@
+﻿@model WebsiteBanVeXe.Models.ticket
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_layOutAdmin.cshtml";
+    List<SelectListItem> listcoach = new List<SelectListItem>();
+    SelectListItem listcoachitem;
+    foreach (var item in ViewBag.listCoach)
+    {
+        listcoachitem = new SelectListItem() { Value = item.id + "", Text = item.name + "" };
+        listcoach.Add(listcoachitem);
+    }
+}
+
+<div class="card card-title bg-white p-1 container">
+    <div class="row">
+        <div class="col-md-6 "> <h5 class="pl-2 mt-2 text-blues">Edit ticket </h5> </div>
+        <div class="col-md-6 m-0">
+            <ol class="breadcrumb bg-white float-sm-right m-0">
+                <li class="breadcrumb-item"><a href="/Admin">Home</a></li>
+                <li class="breadcrumb-item active">Add ticket</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<section class="container pt-2 card">
+    @Html.Partial("_MessgeAlert")
+    <div class="container bg-white pt-4 ">
+
+        @using (Html.BeginForm("Edit", "Tickets", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.created_at)
+            @Html.HiddenFor(m => m.created_by)
+            @Html.HiddenFor(m => m.CoachName)
+            <div class=" row ">
+                <div class="col-md-4">  </div>
+                <div class="col-md-4"> <h3 class="text-center font-weight-bold text-success ">Edit ticket</h3> </div>
+                <div class="col-md-4 ">
+                    <div class="float-right">
+                        <button class="btn btn-sm bg-success text-white"><i class="far fa-save"></i>Save</button>
+                        <a href="~/admin/Tickets" class="btn btn-sm bg-danger text-white"><i class="far fa-window-close"></i> Cancel</a>
+                    </div>
+                </div>
+            </div>
+            <div class=" row ">
+                <div class="col-md-8">
+                    <div>
+                        <label for="psw"><span class="text-secondary font-weight-bold">Ticket title</span></label>
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                    </div>
+                    <div>
+                        <label for="psw"><span class="text-secondary font-weight-bold">Ticket description</span></label>
+                        @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                    </div>
+                    <div>
+                        <label for="psw"><span class="text-secondary font-weight-bold">Place of departure (Bus station)</span></label>
+                        <input value="@Model.departure_address" class="form-control" name="departure_address" />
+                    </div>
+                    <div>
+                        <label for="psw"><span class="text-secondary font-weight-bold">Destination</span></label>
+                        <input value="@Model.arrival_address" class="form-control" name="arrival_address" />
+                    </div>
+                    <div>
+                        <label for="psw"><span class="text-secondary font-weight-bold">Bus station</span></label>
+                        @Html.EditorFor(model => model.airport, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.airport, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="p-3">
+                        <p>
+                            Image preview:
+                        </p>
+                        <img src="~/public/images/flight/@Model.img">
+                    </div>
+                </div>
+                <div class="col-md-4 ">
+                    <div>
+                        <label for="psw"><span class="text-secondary font-weight-bold">Ticket type</span></label>
+                        <select name="ticketType" class="selectpicker form-control" tabindex="1">
+                            <option selected value="Often">Often</option>
+                            <option value="Merchants">Merchants</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="psw"><span class="text-secondary font-weight-bold">Departure day</span></label>
+                        <br><span style="font-size:15px;"> (Note: SA = AM , CH = PM)</span>
+                        <input name="departure_date" class="form-control" type="datetime-local" value="@Model.departure_date.ToString("yyyy-MM-ddTHH:mm")" required />
+                    </div>
+                    <div>
+                        <label for="psw"><span class="text-secondary font-weight-bold">Seats</span></label>
+                        @Html.EditorFor(model => model.guestTotal, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.guestTotal, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div>
+                        <label for="psw"><span class="text-secondary font-weight-bold">Choose garage</span></label>
+                        @Html.DropDownListFor(model => model.garageId, listcoach, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.garageId, "", new { @class = "text-danger" })
+                    </div>
+                    <div>
+                        <label for="psw"><span class="text-secondary font-weight-bold">Ticket amount</span></label>
+                        <input type="number" name="price" class="form-control" value="@Model.price" />
+                    </div>
+                    <div>
+                        <label for="psw"><span class="text-secondary font-weight-bold">Status</span></label>
+                        <select name="status" class="selectpicker form-control" tabindex="1">
+                            <option value="1">Show</option>
+                            <option value="2">Hide</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

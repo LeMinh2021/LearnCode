@@ -1,0 +1,73 @@
+﻿
+@model IEnumerable<WebsiteBanVeXe.Models.ticket>
+@{
+    ViewBag.Title = "flightSearch";
+    Layout = "~/Views/Shared/_layOutSite.cshtml";
+}
+<section class="flight-destinations">
+    <div class="container-fluid bg-white">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="flight-head">
+                    <div class="">
+                        <nav aria-label="breadcrumb">
+                            @{var Date = ViewBag.dateNow; }
+                            <span style="font-weight:bold; font-size:22px;"><i class="fas fa-fighter-jet"></i>The bus ride is available for the day: @Date.ToString("dd/MM/yyyy") </span>
+
+                        </nav>
+                    </div>
+                </div>
+               
+                <div class="flight-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Garage</th>
+                                <th>Departure Gate</th>
+                                <th>Destination</th>
+                                <th>See details</th>
+                        
+                                <th>Bus fare</th>
+                    
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="text-center">
+                                        <img height="30" src="~/public/images/flight/@item.img" alt="">
+                                    </td>
+                                    <td>
+                                        <h6>@item.departure_address</h6>
+                                        <p>Bến Xe (@item.departure_address)</p>
+                                    </td>
+                                    <td>
+                                        <h6>@item.arrival_address</h6>
+                                        <P>Bến Xe (@item.arrival_address)</P>
+                                    </td>
+                                    <td>
+                                        <a href="~/chuyen-xe/@item.id">See details</a>
+                                    </td>
+                                   
+                                    <td>
+                                        <h6><strong class="color-red-3">@item.price.ToString("N0") VND</strong></h6>
+                                        <p class="emi">(currency - VND)</p>
+                                    </td>
+                                  
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- Destination Ends -->

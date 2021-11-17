@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "register";
+    Layout = "~/Views/Shared/_layOutSite.cshtml";
+}
+<section class="">
+    <div>
+        <form action="" method="post">
+            <div class="container bg-light">
+                @Html.Partial("_MessgeAlert")
+                <div class="row bg-light">
+                    <div class="form-group col-md-3 col-xs-12">
+                        <div>
+                            <label for="email">User name</label>
+                            <input class="mb-0 form-control" type="text" placeholder="User name" name="uname" required>
+                            <span class="text-danger">@ViewBag.error</span>
+                        </div>
+                        <div>
+                            <label for="fullname">Full name</label>
+                            <input type="text" class="mb-0 form-control" placeholder="Enter your full name" name="fname" required>
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input class="mb-0 form-control" type="email" id="email" name="email" placeholder="Enter you Email." required>
+                        </div>
+                        <div>
+                            <label for="email">Phone number</label>
+                            <input class="mb-0 form-control" type="tel" name="phone" placeholder="Enter your phone number." required>
+                        </div>
+                        <div>
+                            <label for="email">Address</label>
+                            <input class="mb-0 form-control" type="text" name="address" placeholder="Enter your address." required>
+                        </div>
+                        <div>
+                            <label for="password">Password</label>
+                            <input class="mb-0 form-control" type="password" name="psw" id="password" placeholder="Enter your password" required>
+                        </div>
+                        <div>
+                            <label for="password">Confirm Password</label>
+                            <input class="mb-0 form-control" type="password" id="repeat-password" name="repsw" placeholder="Enter the password" required>
+                        </div>
+
+                        <span class="text-danger">@ViewBag.error</span>
+                        <button style="margin-top:20px;" class="btn-blue btn-red btn-style-1 pt-2" type="submit">Log in</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</section>

@@ -1,0 +1,25 @@
+﻿<div class="upper-head clearfix " style="background-color:#0404B4;">
+    <div class="container ">
+        <div class="upper-head-inner">
+            <div class="contact-info pull-left">
+                <div class="contact-info-item"><i class="flaticon-phone-call"></i><p> MSSV: <span>TH20022022</span></p></div>
+                <i class="flaticon-mail"></i><p> Mail: <span>minhlhth2002022@fpt.edu.vn</span></p>
+            </div>
+            <div class="login-btn pull-right">
+                @if (ViewBag.sessionFullname != null)
+                {
+
+                    <p> Welcome: @ViewBag.sessionFullname </p>
+                    <a  href="~/tai-khoan"><i class="fas fa-user"></i>Account</a>
+                    <a href="~/Customer/logout">log out</a>
+                }
+                else
+                {
+                    <a href="~/dang-nhap"><i class="fa fa-unlock-alt"></i>Log in</a>
+                    <a href="~/dang-ky"><i class="fa fa-user-plus"></i>Register</a>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

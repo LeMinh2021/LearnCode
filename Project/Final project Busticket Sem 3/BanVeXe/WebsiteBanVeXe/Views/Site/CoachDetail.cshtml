@@ -1,0 +1,81 @@
+﻿@model WebsiteBanVeXe.Models.ticket
+@{
+    ViewBag.Title = "flightDetail";
+    Layout = "~/Views/Shared/_layOutSite.cshtml";
+}
+<section class="booking">
+    <div class="container bg-white" style="padding:20px;">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="booking-confirmed booking-outer">
+                    <div class="confirmation-title">
+                        <div class="form-title form-title-1">
+                            <h2 class="text-danger">Ticket details: @Model.departure_address -> @Model.arrival_address</h2>
+                        </div>
+                        <div class="payment-info detail">
+                            <div class="row">
+                                <div class="col-md-12">
+              
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-12">
+                <table class="table" style="margin-top:20px;">
+                    <tbody>
+                        <tr>
+                            <td class="title">Image </td>
+                            <td> <img src="~/public/images/flight/@Model.img" alt=""></td>
+                        </tr>
+                        <tr>
+                            <td class="title">Garage</td>
+                            <td>@Model.CoachName</td>
+                        </tr>
+                        <tr>
+                            <td class="title">Bus fare</td>
+                            <td class="b-id text-danger">@Model.price.ToString("N0") VND</td>
+                        </tr>
+                        <tr>
+                            <td class="title">Departure time</td>
+                            <td>@Model.departure_date.ToString("dd-MM-yyyy") ||  Lúc @Model.departure_date.ToString("hh:mm tt") </td>
+                        </tr>
+                        <tr>
+                            <td class="title">Place of departure</td>
+                            <td>@Model.departure_address</td>
+                        </tr>
+                        <tr>
+                            <td class="title">Destination</td>
+                            <td>@Model.arrival_address</td>
+                        </tr>
+                        <tr>
+                            <td class="title">Bus station</td>
+                            <td>@Model.airport</td>
+                        </tr>
+                        <tr>
+                            <td class="title">License plates</td>
+                            <td>@Model.licensePlates</td>
+                        </tr>
+                        <tr>
+                            @{
+                                var guestTotal = (int)Model.guestTotal - (int)Model.sold;
+                            }
+                            <td class="title">Seats are empty</td>
+                            <td>@guestTotal  / @Model.guestTotal Seat    </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .title {
+        font-size: 17px;
+        font-weight: bold;
+        padding-right: 50px;
+        color: #ff0000;
+    }
+</style>

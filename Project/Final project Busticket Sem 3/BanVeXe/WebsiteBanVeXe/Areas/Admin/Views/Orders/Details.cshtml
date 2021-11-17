@@ -1,0 +1,94 @@
+﻿@model WebsiteBanVeXe.Models.order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_layOutAdmin.cshtml";
+}
+
+<div class="container bg-white">
+    <div class="row">
+        <div class="col-md-7">
+            <h3>Order Details</h3>
+            <table class="table border">
+                <tbody>
+                    <tr>
+                        <td class="title">Booking ID</td>
+                        <td class="b-id">@Model.ID</td>
+                    </tr>
+                    <tr>
+                        <td class="title">Order Code</td>
+                        <td class="b-id">@Model.code</td>
+                    </tr>
+                    <tr>
+                        <td class="title">Customer name</td>
+                        <td>@Model.name </td>
+                    </tr>
+                    <tr>
+                        <td class="title">Email</td>
+                        <td>@Model.email</td>
+                    </tr>
+                    <tr>
+                        <td class="title">Phone Number</td>
+                        <td>@Model.phone</td>
+                    </tr>
+                    <tr>
+                        <td class="title">Seats</td>
+                        <td>@Model.guestTotal</td>
+                    </tr>
+                    <tr>
+                        <td class="title">Sex</td>
+                        <td>@Model.gioitinh</td>
+                    </tr>
+                    <tr>
+                        <td class="title">Nationality</td>
+                        <td>@Model.quoctich</td>
+                    </tr>
+                    <tr>
+                        <td class="title">Message</td>
+                        <td>@Model.mess</td>
+                    </tr>
+                    <tr>
+                        <td class="title">Date created</td>
+                        <td>@Model.created_ate (m/d/y)</td>
+                    </tr>
+                    @if (Model.StatusPayment == 1)
+                    {
+                        <tr>
+                            <td class="title">Payment Status</td>
+                            <td class="text-success">Paid<i class="fas fa-check"></i></td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td class="title">Payment Status</td>
+                            <td>Not paid, please pay again.</td>
+                        </tr>
+
+                    }
+                    <tr>
+                        <td class="title">Payment methods:</td>
+                        <td>@Model.deliveryPaymentMethod.</td>
+                    </tr>
+                    <tr>
+                        <td class="title">Total money:</td>
+                        <td><h4 class="text-danger"> @Model.total.ToString("N0") USD</h4></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-md-5">
+            @Html.Action("_BookingConnfig", "Orders", new { orderId = Model.ID })
+
+        </div>
+    </div>
+</div>
+<style>
+    .title {
+        font-size: 17px;
+        font-weight: bold;
+        padding-right: 50px;
+        color: #ff0000;
+    }
+</style>

@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "confirm_orderPaymentOnline";
+    Layout = "~/Views/Shared/_layOutSite.cshtml";
+}
+
+@{
+    bool status = (bool)ViewBag.status;
+
+}
+@if (status == true)
+{
+<span>Online Payment Successful We will contact you later <a class="text-danger" href="~/">Back to Homepage</a></span>
+
+}
+else
+{
+<span> Online payment failed Please try again<a class="text-danger" href="~/">Back to Homepage</a></span>
+
+}
+
